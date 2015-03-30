@@ -200,7 +200,7 @@ blockquote:before {
 
    position: absolute;
    top:  30px;
-	left: 0;
+ 	 left: 0;
 }
 blockquote p {
    font-family: 'librebaskerville-italic', serif;
@@ -229,7 +229,7 @@ blockquote cite a:visited { color: #8B9798; border: none }
 /*
 /* --------------------------------------------------------------------- */
 .pull-quote {
-   position: relative;
+  position: relative;
 	padding: 18px 30px 18px 0px;
 }
 .pull-quote:before,
@@ -238,7 +238,7 @@ blockquote cite a:visited { color: #8B9798; border: none }
 	opacity: 0.45;
 	position: absolute;
 	font-size: 80px;
-   font-family: Arial, Sans-Serif;
+  font-family: Arial, Sans-Serif;
 }
 .pull-quote:before {
 	content: "\201C";
@@ -259,10 +259,10 @@ blockquote cite a:visited { color: #8B9798; border: none }
 
 /* Abbreviations */
 abbr {
-   font-family: 'opensans-bold', sans-serif;
+  font-family: 'opensans-bold', sans-serif;
 	font-variant: small-caps;
 	text-transform: lowercase;
-   letter-spacing: .5px;
+  letter-spacing: .5px;
 	color: gray;
 }
 abbr:hover { cursor: help; }
@@ -274,7 +274,7 @@ abbr:hover { cursor: help; }
 	padding: 14px 6px 0 0;
 	font-size: 84px;
 	font-family: /* Copperplate */ 'opensans-bold', sans-serif;
-   line-height: 60px;
+  line-height: 60px;
 	text-indent: 0;
 	background: transparent;
 	color: inherit;
@@ -288,7 +288,7 @@ hr { border: solid #E3E3E3; border-width: 1px 0 0; clear: both; margin: 11px 0 3
 a, a:visited {
    text-decoration: none;
    outline: 0;
-   color: #11ABB0;
+   color: #427FC2;
 
    -webkit-transition: color .3s ease-in-out;
    -moz-transition: color .3s ease-in-out;
@@ -349,7 +349,7 @@ li p { }
    color: #313131;
 }
 .stats-tabs li a:hover {
-   color:#11ABB0;
+   color:#427FC2;
 }
 .stats-tabs li a b {
 	display: block;
@@ -361,7 +361,7 @@ li p { }
 
 /* definition list */
 dl { margin: 12px 0; }
-dt { margin: 0; color:#11ABB0; }
+dt { margin: 0; color:#427FC2; }
 dd { margin: 0 0 0 20px; }
 
 /* Lining Definition Style Markup */
@@ -436,7 +436,7 @@ dd { margin: 0 0 0 20px; }
 }
 .pagination .current,
 .pagination .current:hover {
-   background-color: #11ABB0;
+   background-color: #427FC2;
    color: #fff;
 }
 .pagination .inactive,
@@ -464,13 +464,13 @@ input[type="submit"],
 input[type="reset"],
 input[type="button"] {
    font: 16px/30px 'opensans-bold', sans-serif;
-   background: #11ABB0;
+   background: #427FC2;
    display: inline-block;
-	text-decoration: none;
+	 text-decoration: none;
    letter-spacing: 0;
    color: #fff;
-	padding: 12px 20px;
-	margin-bottom: 18px;
+	 padding: 12px 20px;
+	 margin-bottom: 18px;
    border: none;
    cursor: pointer;
    height: auto;

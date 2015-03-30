@@ -38,7 +38,7 @@
         ================================================== -->
         <header id="home">
 
-        <nav id="nav-wrap">
+        <nav id="nav-wrap" class=".nav-wrap-top">
 
         <a class="mobile-btn" href="#nav-wrap" title="Show navigation">Show navigation</a>
         <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
@@ -46,7 +46,9 @@
         <ul id="nav" class="nav">
           <li class="current"><a class="smoothscroll" href="#home">Home</a></li>
           <li><a class="smoothscroll" href="#about">About</a></li>
-          <li><a class="smoothscroll" href="#about">Resume</a></li>
+          <li><a href="static/download/resume.pdf">Resume</a></li>
+          <li><a class="smoothscroll" href="#education">Education</a></li>
+          <li><a class="smoothscroll" href="#work">Work</a></li>
           <li><a class="smoothscroll" href="#portfolio">Portfolio</a></li>
           <li><a href="mailto:bradley.hekman@gmail.com">Contact</a></li>
         </ul> <!-- end #nav -->
@@ -127,7 +129,7 @@
 
         <!-- Education
         ------------------------------------------------ -->
-        <section id="resume">
+        <section id="education">
           <div class="row education">
 
             <div class="three columns header-col">
@@ -142,7 +144,7 @@
                   <p class="info">B.S.E. in Computer Science with Honors &bull; May 2015<br>
                   Minor in Complex Systems<br>
                   Minor in International Engineering</p>
-                  <ul>
+                  <ul class="description">
                     <li>&bull; EECS 477 - Algorithms</li>
                     <li>&bull; EECS 484 - Databases</li>
                     <li>&bull; EECS 492 - Artificial Intelligence</li>
@@ -159,7 +161,7 @@
                   <h3>Semester at Sea</h3>
                   <p class="info">Study Abroad &bull; Spring 2013</p>
 
-                  <p>
+                  <p class="description">
                   Explored diverse locations and cultures while in port and studied international-focused coursework while at sea. Gained an appreciation for foreign cultures, a passion for travel, and confidence in my ability to take on the world. Read more about our voyage <a href="http://www.semesteratsea.org/voyages/spring-2013/">here</a>.
                   </p>
 
@@ -170,12 +172,13 @@
             </div> <!-- main-col end -->
 
           </div> <!-- End Education -->
+        </section> <!-- Education Section End-->
 
 
-
-          <!-- Work
-          ------------------------------------------------ -->
-          <div class="row work" id="resume">
+        <!-- Work
+        ------------------------------------------------ -->
+        <section id="work"> <!-- Work Section Start-->
+          <div class="row work">
 
             <div class="three columns header-col">
               <h1><span>Work</span></h1>
@@ -186,10 +189,10 @@
               <div class="row item">
                 <div class="twelve columns">
                   <h3>Google &bull; Zurich</h3>
-                  <p class="info">Software Engineer<span>&bull;</span> <em class="date">Starting August 2015</em></p>
+                  <h4 class="info">Software Engineer <span>&bull;</span> <em class="date">Starting August 2015</em></h4>
 
-                  <p>
-                  <!--TODO-->
+                  <p class="description">
+                  TODO: Please see resume for more info.
                   </p>
                 </div>
               </div> <!-- row item end -->
@@ -197,9 +200,9 @@
               <div class="row item">
                 <div class="twelve columns">
                   <h3>Google &bull; Mountain View, CA</h3>
-                  <p class="info">Software Engineering Intern<span>&bull;</span> <em class="date">Summer 2014</em></p>
-                  <p>
-                  <!--TODO-->
+                  <h4 class="info">Software Engineering Intern <span>&bull;</span> <em class="date">Summer 2014</em></h4>
+                  <p class="description">
+                  TODO: Please see resume for more info.
                   </p>
                 </div>
               </div> <!-- item end -->
@@ -207,9 +210,9 @@
               <div class="row item">
                 <div class="twelve columns">
                   <h3>Facebook &bull; Menlo Park, CA</h3>
-                  <p class="info">Software Engineering Intern<span>&bull;</span> <em class="date">Summer 2013</em></p>
-                  <p>
-                  <!--TODO-->
+                  <h4 class="info">Software Engineering Intern <span>&bull;</span> <em class="date">Summer 2013</em></h4>
+                  <p class="description">
+                  TODO: Please see resume for more info.
                   </p>
                 </div>
               </div> <!-- item end -->
@@ -217,16 +220,16 @@
               <div class="row item">
                 <div class="twelve columns">
                   <h3>North American Bancard &bull; Troy, MI</h3>
-                  <p class="info">Android Developer Intern<span>&bull;</span> <em class="date">Summer 2012</em></p>
-                  <p>
-                  <!--TODO-->
+                  <h4 class="info">Android Developer Intern <span>&bull;</span> <em class="date">Summer 2012</em></h4>
+                  <p class="description">
+                  TODO: Please see resume for more info.
                   </p>
                 </div>
               </div> <!-- item end -->
 
             </div> <!-- main-col end -->
           </div> <!-- End Work -->
-        </section> <!-- Resume Section End-->
+        </section> <!-- Education Section End-->
 
 
         <!-- Portfolio Section
@@ -235,12 +238,12 @@
 
         <div class="row">
 
-          <div class="twelve columns collapsed">
+          <h1>Check Out Some of My Works. (Coming soon)<br>
+          Check out my <a href="https://seelio.com/bhekman">Seelio</a>
+          and my <a href="https://github.com/bhekman">Github</a>
+          in the meantime!</h1>
 
-            <h1>Check Out Some of My Works. (Coming soon)<br>
-            Check out my <a href="https://seelio.com/bhekman">Seelio</a>
-            and my <a href="https://github.com/bhekman">Github</a>
-            in the meantime!</h1>
+          <div class="twelve columns collapsed">
 
             <!-- portfolio-wrapper -->
             <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-thirds cf">
@@ -413,7 +416,7 @@
 
           </div>
 
-          <div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>
+          <!--<div id="go-top"><a class="smoothscroll" title="Back to Top" href="#home"><i class="icon-up-open"></i></a></div>-->
 
         </div>
 
