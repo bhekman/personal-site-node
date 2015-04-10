@@ -18,13 +18,15 @@ app.use(cookieParser()); // read cookies (needed for auth)
 app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.set('view engine', 'ejs'); // set up ejs for templating
-app.engine('html', require('ejs').renderFile);
+//app.set('view engine', 'ejs'); // set up ejs for templating
+app.set('view engine', 'jade');
+//app.engine('html', require('ejs').renderFile);
 
 app.use('/static', express.static(__dirname + '/views/static'));
+app.use('/honors/static', express.static(__dirname + '/views/static'));
 
 // routes ======================================================================
-require('./app/routes.js')(app); // load our routes and pass in our app and fully configured passport
+require('./app/routes.js')(app);
 
 // launch ======================================================================
 app.listen(port);

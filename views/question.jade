@@ -1,0 +1,14 @@
+mixin question(title, left, middle, right)
+  br
+  div.panel.panel-info
+    div.panel-heading
+      h3.panel-title= title
+    div.panel-body
+      div.btn-group.btn-group-justified(role="group", aria-label="...")
+        div.btn-group(role="group")
+          button.btn.btn-default(type="button")= left
+        div.btn-group(role="group")
+          button.btn.btn-default(type="button")= middle
+        div.btn-group(role="group")
+          button.btn.btn-default(type="button")= right
+    br

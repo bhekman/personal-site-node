@@ -1,0 +1,25 @@
+include question
+
+html(lang="en")
+  include header
+
+  body
+    div.container
+
+      // jumbotron stuff
+      div.jumbotron
+        h1 Welcome
+        p.lead.
+          This site is still a work in progress. It will soon be a questionaire about study habits for my honors project.
+
+      // questions
+      form(action="test", method="get")
+        div.input-group
+          span.input-group-btn
+            +question("Question 1: foo?", "kinda", "meh", "hell yeah")
+        div.input-group
+          span.input-group-btn
+            +question("Question 2: bar?", "nom", "meh", "omnomnom")
+        button.btn.btn-default(type="submit") Submit!
+
+
