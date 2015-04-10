@@ -4,14 +4,14 @@ mixin question(title, left, middle, right)
     div.panel-heading
       h3.panel-title= title
     div.panel-body
-      div.btn-group(data-toggle="buttons")
-        label.btn.btn-primary.active
+      div.btn-group.btn-group-justified(data-toggle="buttons")
+        label.btn.active
           input#option1(type="radio", name="options", value="one", autocomplete="off")
           h3 one
-        label.btn.btn-primary
+        label.btn
           input#option2(type="radio", name="options", value="two", autocomplete="off")
           h3 two
-        label.btn.btn-primary
+        label.btn
           input#option3(type="radio", name="options", value="three", autocomplete="off")
           h3 three
     br

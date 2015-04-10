@@ -1,14 +1,26 @@
-mixin question(title, left, middle, right)
+mixin q_onclick(q_num, q_option)
+  script.
+    $('##{q_num}_#{q_option}').on('click', function () {
+      var $btn = $(this).button('loading');
+      console.log('#{q_num},#{q_option} was clicked');
+      // TODO; record answer
+    })
+
+mixin question(title, q_num, left, middle, right)
   br
+  script(src="static/js/question.js")
   div.panel.panel-info
     div.panel-heading
       h3.panel-title= title
     div.panel-body
       div.btn-group.btn-group-justified(role="group", aria-label="...")
         div.btn-group(role="group")
-          button.btn.btn-default(type="button")= left
+          button.btn.btn-default(type="button", id=(q_num+"_1"))= left
+          +q_onclick(q_num, 1)
         div.btn-group(role="group")
-          button.btn.btn-default(type="button")= middle
+          button.btn.btn-default(type="button", id=(q_num+"_2"))= middle
+          +q_onclick(q_num, 2)
         div.btn-group(role="group")
-          button.btn.btn-default(type="button")= right
+          button.btn.btn-default(type="button", id=(q_num+"_3"))= right
+          +q_onclick(q_num, 3)
     br
