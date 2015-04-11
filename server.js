@@ -20,6 +20,9 @@ app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('view engine', 'jade');
+app.set('view engine', 'ejs'); // set up ejs for templating
+app.engine('html', require('ejs').renderFile);
+
 app.use('/static', express.static(__dirname + '/views/static'));
 app.use('/quiz/static', express.static(__dirname + '/views/static'));
 

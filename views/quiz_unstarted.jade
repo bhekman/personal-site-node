@@ -6,6 +6,7 @@ html(lang="en")
     div.container
       
       include quiz_jumbo
+      br
 
       div.panel.panel-info(id="panel_"+q_num)
         div.panel-heading
@@ -13,10 +14,8 @@ html(lang="en")
         div.panel-body
           div.btn-group.btn-group-justified(role="group", aria-label="...")
             div.btn-group(role="group")
-              a.btn.btn-success(type="button" href="/quiz/new") Take quiz!
+              a.btn.btn-success#quiz(type="button" href="/quiz/new") Take quiz!
             div.btn-group(role="group")
-              a.btn.btn-default(type="button" href="/quiz/answers") Skip to answers
+              button.btn.btn-default#answers(type="button") Skip to answers
         br
-
-      button.btn.btn-default(type="submit") Start quiz!
 
