@@ -36,10 +36,10 @@ mixin q_onclick(q_num, q_choice, correct, footer, uid)
       $panel.append('<div class="panel-footer">#{footer}</div>');
 
       // data store
-      var id = #{uid};
-      var data = {id: id, q_num: #{q_num}, q_choice: "#{q_choice}" };
+      var uid = #{uid};
+      var data = {uid: uid, q_num: #{q_num}, q_choice: "#{q_choice}" };
       $.ajax({
-        url: 'http://localhost:8080/test',
+        url: '/quiz/choice',
         type: 'PUT',
         data: data,
       });

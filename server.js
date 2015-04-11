@@ -40,10 +40,13 @@ var questionSchema= new mongoose.Schema({
     choices: [ String ],
     footer: String
 });
-questionSchema.methods.debug= function () {
-  console.log(this);
-}
 var Question = mongoose.model('Question', questionSchema);
+var choiceSchema= new mongoose.Schema({
+    uid: Number,
+    q_num: Number,
+    q_choice: Number,
+});
+var Choice = mongoose.model('Choice', choiceSchema);
 //new Question({
     //num: 0,
     //question: "Hello?",
@@ -80,9 +83,9 @@ app.get('/quiz', function(req, res) {
   res.render('quiz_unstarted.jade');
 });
 app.get('/quiz/new', function(req, res) {
-  Question.find().sort('-num').limit(1).exec(function (err, question) {
+  Choice.find().sort('-uid').limit(1).exec(function (err, max_choice) {
       // TODO: this system is quite vulnerable..
-      var current_max = question[0].num;
+      var current_max = max_choice[0].uid;
       res.redirect('/quiz/' + (current_max + 1));
     });
 });
@@ -92,9 +95,21 @@ app.get('/quiz/:uid', function(req, res) {
       res.render('quiz.jade', {questions: questions, uid: req.params.uid});
   });
 });
-app.put('/test', function(req, res) {
+app.put('/quiz/choice', function(req, res) {
   console.log("TEST");
   console.log(req.body);
+  Choice.findOneAndUpdate(
+    { uid: req.body.uid, q_num: req.body.q_num },
+    { q_choice: req.body.q_choice },
+    { upsert: true },
+    function(err, doc) {
+      console.log(doc);
+  });
+  //new Choice({
+      //uid: req.body.uid,
+      //q_num: req.body.q_num,
+      //q_choice: req.body.q_choice
+  //}).save();
   res.end();
 });
 app.get('/', function(req, res) {
