@@ -2,24 +2,18 @@ include question
 
 html(lang="en")
   include header
-
   body
     div.container
 
-      // jumbotron stuff
-      div.jumbotron
-        h1 Welcome
-        p.lead.
-          This site is still a work in progress. It will soon be a questionaire about study habits for my honors project.
+      include quiz_jumbo
 
-      // questions
-      form(action="test", method="get")
-        div.input-group
-          span.input-group-btn
-            +question("Question 1: foo?", 1, "kinda", "meh", "hell yeah")
-        div.input-group
-          span.input-group-btn
-            +question("Question 2: bar?", 2, "nom", "meh", "omnomnom")
-        button.btn.btn-default(type="submit") Submit!
+      //-button.btn.btn-danger(type="submit") Reset quiz!
+
+      each q, i in questions
+        //-+question(q.question, q.num, q.correct_choice, "true", "maybe?", "false")
+        +question(q.question, q.num, q.correct_choice, q.choices, q.footer, uid)
+
+      button.btn.btn-success(type="submit") Submit!
+
 
 

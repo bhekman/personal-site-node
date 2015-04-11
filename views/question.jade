@@ -1,26 +1,61 @@
-mixin q_onclick(q_num, q_option)
+mixin q_onclick(q_num, q_choice, correct, footer, uid)
   script.
-    $('##{q_num}_#{q_option}').on('click', function () {
+    $('##{q_num}_#{q_choice}').on('click', function () {
+
+      // vars
       var $btn = $(this).button('loading');
-      console.log('#{q_num},#{q_option} was clicked');
-      // TODO; record answer
+      var $panel = $btn.closest(".panel");
+
+      $btn.button('reset');
+      if ($panel.hasClass("frozen")) {
+        return;
+      } else {
+        $panel.addClass("frozen");
+      }
+
+      // logs
+      console.log('#{q_num},#{q_choice} was clicked');
+
+      // visual
+      var choice = "#{q_choice}";
+      var num_choices = 3;
+      var correct_choice = "#{correct}";
+      var correct = (choice == correct_choice);
+      if (correct) {
+        $panel.toggleClass('panel-info panel-success');
+      } else {
+        $panel.toggleClass('panel-info panel-danger');
+      }
+      for (var i = 0; i < num_choices; i++) {
+        if (i==correct_choice) {
+          $('##{q_num}_'+i).toggleClass('btn-default btn-success');
+        } else if (i==choice) {
+          $('##{q_num}_'+i).toggleClass('btn-default btn-warning');
+        }
+      }
+      $panel.append('<div class="panel-footer">#{footer}</div>');
+
+      // data store
+      var id = #{uid};
+      var data = {id: id, q_num: #{q_num}, q_choice: "#{q_choice}" };
+      $.ajax({
+        url: 'http://localhost:8080/test',
+        type: 'PUT',
+        data: data,
+      });
     })
 
-mixin question(title, q_num, left, middle, right)
+
+mixin question(title, q_num, correct, choices, footer, uid)
   br
   script(src="static/js/question.js")
-  div.panel.panel-info
+  div.panel.panel-info(id="panel_"+q_num)
     div.panel-heading
       h3.panel-title= title
     div.panel-body
-      div.btn-group.btn-group-justified(role="group", aria-label="...")
-        div.btn-group(role="group")
-          button.btn.btn-default(type="button", id=(q_num+"_1"))= left
-          +q_onclick(q_num, 1)
-        div.btn-group(role="group")
-          button.btn.btn-default(type="button", id=(q_num+"_2"))= middle
-          +q_onclick(q_num, 2)
-        div.btn-group(role="group")
-          button.btn.btn-default(type="button", id=(q_num+"_3"))= right
-          +q_onclick(q_num, 3)
-    br
+      div.btn-group.btn-group-justified(role="group", id=("q_"+q_num), q_numaria-label="...")
+        each choice, i in choices
+          div.btn-group(role="group")
+            button.btn.btn-default(type="button", id=(q_num+"_"+i))= choice
+            +q_onclick(q_num, i, correct, footer, uid)
+

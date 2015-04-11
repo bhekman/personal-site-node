@@ -1,0 +1,22 @@
+include question
+
+html(lang="en")
+  include header
+  body
+    div.container
+      
+      include quiz_jumbo
+
+      div.panel.panel-info(id="panel_"+q_num)
+        div.panel-heading
+          h3.panel-title= "What would you like to do?"
+        div.panel-body
+          div.btn-group.btn-group-justified(role="group", aria-label="...")
+            div.btn-group(role="group")
+              a.btn.btn-success(type="button" href="/quiz/new") Take quiz!
+            div.btn-group(role="group")
+              a.btn.btn-default(type="button" href="/quiz/answers") Skip to answers
+        br
+
+      button.btn.btn-default(type="submit") Start quiz!
+
