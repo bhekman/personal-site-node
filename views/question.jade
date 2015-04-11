@@ -1,4 +1,4 @@
-mixin q_onclick(q_num, q_choice, correct, footer, uid)
+mixin q_onclick(q_num, q_choice, correct, num_choices, footer, uid)
   script.
     $('##{q_num}_#{q_choice}').on('click', function () {
 
@@ -18,7 +18,7 @@ mixin q_onclick(q_num, q_choice, correct, footer, uid)
 
       // visual
       var choice = "#{q_choice}";
-      var num_choices = 3;
+      var num_choices = #{num_choices};
       var correct_choice = "#{correct}";
       var correct = (choice == correct_choice);
       if (correct) {
@@ -46,9 +46,8 @@ mixin q_onclick(q_num, q_choice, correct, footer, uid)
     })
 
 
-mixin question(title, q_num, correct, choices, footer, uid)
+mixin question(title, q_num, correct, choices, num_choices, footer, uid)
   br
-  script(src="static/js/question.js")
   div.panel.panel-info(id="panel_"+q_num)
     div.panel-heading
       h3.panel-title= title
@@ -57,5 +56,5 @@ mixin question(title, q_num, correct, choices, footer, uid)
         each choice, i in choices
           div.btn-group(role="group")
             button.btn.btn-default(type="button", id=(q_num+"_"+i))= choice
-            +q_onclick(q_num, i, correct, footer, uid)
+            +q_onclick(q_num, i, correct, num_choices, footer, uid)
 

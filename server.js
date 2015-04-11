@@ -41,6 +41,7 @@ var questionSchema= new mongoose.Schema({
     question: { type: String, trim: true },
     correct_choice: Number, // TODO: this should probably be a String
     choices: [ String ],
+    num_choices: Number, // TODO: Yes, this is dumb. Just it makes jade easier.
     footer: String
 });
 var Question = mongoose.model('Question', questionSchema);
@@ -50,57 +51,50 @@ var choiceSchema= new mongoose.Schema({
     q_choice: Number,
 });
 var Choice = mongoose.model('Choice', choiceSchema);
+var resultSchema= new mongoose.Schema({
+    q_num: Number,
+    choices: [{ choice: String, votes: Number }] 
+});
+var Result = mongoose.model('Result', resultSchema);
 //new Question({
     //num: 0,
     //question: "Hello?",
     //correct_choice: 1,
     //choices: ["True", "Hello!", "False"],
+    //num_choices: 3,
     //footer: "When people greet you, you should greet them back."
 //}).save();
 //new Question({
     //num: 1,
     //question: "Am I awesome?",
     //correct_choice: 0,
-    //choices: ["Yes", "Hello!", "No"],
+    //choices: ["Yes", "Hello!", "No", "Maybe..."],
+    //num_choices: 4,
     //footer: "I am awesome. Accept it."
 //}).save();
 //new Question({
     //num: 2,
     //question: "Do you want to be awesome?",
     //correct_choice: 0,
-    //choices: ["Yes", "Maybe", "Do I get paid?"],
+    //choices: ["Yes", "Do I get paid?"],
+    //num_choices: 2,
     //footer: "Everyone wants to be awesome. Be AWESOME!"
 //}).save();
-//console.log(yay.question);
-//yay.debug();
 
-
-// Compiles the schema into a model, opening (or creating, if
-// // nonexistent) the 'PowerUsers' collection in the MongoDB database
-// var PUser = mongoose.model('PowerUsers', userSchema);
 
 // routes ======================================================================
 //require('./app/routes.js')(app);
 var url = require('url');
+
+app.get('/', function(req, res) {
+  res.render('index.html');
+});
+
 app.get('/quiz', function(req, res) {
   res.render('quiz_unstarted.jade');
 });
-app.get('/quiz/new', function(req, res) {
-  Choice.find().sort('-uid').limit(1).exec(function (err, max_choice) {
-      // TODO: this system is quite vulnerable..
-      var current_max = max_choice[0].uid;
-      res.redirect('/quiz/' + (current_max + 1));
-    });
-});
-app.get('/quiz/:uid', function(req, res) {
-  var questionlist = Question.find().lean().exec(
-    function(err, questions) {
-      res.render('quiz.jade', {questions: questions, uid: req.params.uid});
-  });
-});
+
 app.put('/quiz/choice', function(req, res) {
-  console.log("TEST");
-  console.log(req.body);
   Choice.findOneAndUpdate(
     { uid: req.body.uid, q_num: req.body.q_num },
     { q_choice: req.body.q_choice },
@@ -108,16 +102,35 @@ app.put('/quiz/choice', function(req, res) {
     function(err, doc) {
       console.log(doc);
   });
-  //new Choice({
-      //uid: req.body.uid,
-      //q_num: req.body.q_num,
-      //q_choice: req.body.q_choice
-  //}).save();
   res.end();
 });
-app.get('/', function(req, res) {
-  res.render('index.html');
+
+app.get('/quiz/new', function(req, res) {
+  Choice.find().sort('-uid').limit(1).exec(function (err, max_choice) {
+      // TODO: this system is quite vulnerable..
+      var current_max = 0;
+      if (max_choice && max_choice[0] != null) {
+        var current_max = max_choice[0].uid;
+      }
+      res.redirect('/quiz/' + (current_max + 1));
+    });
 });
+
+app.get('/quiz/results', function(req, res) {
+  // TODO: Make/Call updateResults();
+  Result.find().lean().exec(
+    function(err, results) {
+      res.render('quiz_results.jade', {results: results});
+  });
+});
+
+app.get('/quiz/:uid', function(req, res) {
+  Question.find().lean().exec(
+    function(err, questions) {
+      res.render('quiz.jade', {questions: questions, uid: req.params.uid});
+  });
+});
+
 
 // launch ======================================================================
 app.listen(port);
