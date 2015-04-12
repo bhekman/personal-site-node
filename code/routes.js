@@ -38,31 +38,128 @@ module.exports = function(app) {
   var Result = mongoose.model('Result', resultSchema);
 
   // Question creation
-  var q1_footer = "";
-  q1_footer += "<h4>Explanation</h4>";
-  q1_footer += "<div>There is anecdotal evidence and psychological research supporting each answer to this question. Most recently, researchers have tied background music to raising the arousal (eg. stress) levels of students. This hypothesis explains why music benefits some students and not others, according to whether they are below or above their optimal arousal level. </div>";
-  q1_footer += "<br>";
-  q1_footer += "<div>This hypothesis is supported by evidence that shows music to have differing effects on introverts and extroverts, since introverts are affected more strongly by the background music.  This hypothesis is also supported by studies that examined differences between effects from vocal or orchestral music.  Thirdly, this hypothesis is supported by studies that shown unfamiliar music to be more disruptive than familiar music.</div>";
-  q1_footer += "<br>";
-  q1_footer += "<h4>Further reading</h4><ul>";
-  q1_footer += "<li><a href=\"https://www.researchgate.net/publication/258927360_Music_to_our_ears_The_effect_of_background_music_in_higher_education_learning_environments\">Music to our ears</a></li>";
-  q1_footer += "<li><a href=\"http://www.tandfonline.com/doi/abs/10.1080/00140130210121932#.VSqLNxPF-5I\">Music is as distracting as noise</a></li>";
-  q1_footer += "<li><a href=\"http://onlinelibrary.wiley.com/doi/10.1002/%28SICI%291099-0720%28199710%2911:5%3C445::AID-ACP472%3E3.0.CO;2-R/abstract\">Music while you work</a></li>";
-  q1_footer += "</ul>";
+  var footer;
+  /////////////////
+  // Question #1 //
+  /////////////////
+  footer = "";
+  footer += "<h4>Explanation</h4>";
+  footer += "<div>There is anecdotal evidence and psychological research supporting each answer to this question. Most recently, researchers have tied background music to raising the arousal (eg. stress) levels of students. This hypothesis explains why music benefits some students and not others, according to whether they are below or above their optimal arousal level. </div>";
+  footer += "<br>";
+  footer += "<div>Although music is likely to have effects beyond simply affecting arousal levels, this hypothesis explains why music benefits some students and not others, according to whether they are below or above their optimal arousal level.</div>";
+  footer += "<br>";
+  footer += "<h4>Further reading</h4><ul>";
+  footer += "<li><a href=\"https://www.researchgate.net/publication/258927360_Music_to_our_ears_The_effect_of_background_music_in_higher_education_learning_environments\">Music to our ears</a></li>";
+  footer += "<li><a href=\"http://www.tandfonline.com/doi/abs/10.1080/00140130210121932#.VSqLNxPF-5I\">Music is as distracting as noise</a></li>";
+  footer += "<li><a href=\"http://onlinelibrary.wiley.com/doi/10.1002/%28SICI%291099-0720%28199710%2911:5%3C445::AID-ACP472%3E3.0.CO;2-R/abstract\">Music while you work</a></li>";
+  footer += "<li><a href=\"http://en.wikipedia.org/wiki/Yerkes%E2%80%93Dodson_law\">Wikipedia: Yerkes Dodson Law</a></li>";
+  footer += "</ul>";
   new Question({
-      num: 0,
+      num: 1,
       question: "Does background music disrupt cognitive performance on some learning tasks?",
       correct_choice: 2,
       choices: ["Yes. Music disrupts studying",
                 "No. Music does not disrupt studying. It can even improve recall",
-                "Maybe. The research is inconclusive or contradictory"],
-      num_choices: 3,
-      footer: q1_footer
+                "Maybe. The research is inconclusive or contradictory",
+                "I don’t know."],
+      num_choices: 4,
+      footer: footer
   })
   .save()
   ;
 
+  /////////////////
+  // Question #2 //
+  /////////////////
+  footer = "";
+  footer += "<h4>Explanation</h4>";
+  footer += "<div>Although sleep deprivation does dramatically affect performance on basic and routine tasks, it also precludes memory consolidation during sleep. In this way, sleep deprivation costs double: acuity and vigilance are lost, and no benefit is gained.</div>";
+  footer += "<br>";
+  footer += "<h4>Further reading</h4><ul>";
+  footer += "<li><a href=\"http://www.neurology.org/content/64/7/E25.full\">Cognitive benefits of sleep and their loss due to sleep deprivation</a></li>";
+  footer += "<li><a href=\"http://journals.lww.com/academicmedicine/Abstract/1991/11000/A_review_of_studies_concerning_effects_of_sleep.13.aspx\">A review of studies concerning effects of sleep deprivation and fatigue on residents\\' performance.</a></li>";
+  footer += "<li><a href=\"http://physrev.physiology.org/content/93/2/681.abstract\">About Sleep\\'s Role in Memory</a></li>";
+  footer += "<li><a href=\"http://learnmem.cshlp.org/content/11/6/679.short\">Declarative memory consolidation: Mechanisms acting during human sleep</a></li>";
+  footer += "</ul>";
+  new Question({
+      num: 2,
+      question: "Does lack of sleep negatively affect memory and recall?",
+      correct_choice: 0,
+      choices: ["Yes. Memories are consolidated during sleep.",
+                "No. Sleep deprivation only affects arousal levels, hurting performance on basic tasks.",
+                "Maybe. The research is inconclusive or contradictory.",
+                "I don’t know."],
+      num_choices: 4,
+      footer: footer
+  })
+  .save()
+  ;
 
+  /////////////////
+  // Question #3 //
+  /////////////////
+  footer = "";
+  footer += "<h4>Explanation</h4>";
+  footer += "<div>Caffeine acts to at least two ways to improve cognitive performance in the morning.</div>";
+  footer += "<br>";
+  footer += "<div>1) Arousal and alertness levels are low in the morning, since people have just woken up. Caffeine has been shown to raise these levels. According to research articles and the Yerkes-Dodson Law, more normal arousal levels will improve performance on both simple and complex tasks.</div>";
+  footer += "<br>";
+  footer += "<div>2) Sleep inertia is a well-established phenomenon that describes grogginess and impaired cognitive performance after sleep. Current research supports a hypothesis that a build-up of adenosine is at least partially to blame for these effects. Multiple studies have shown caffeine to be effective in mitigating the effects of sleep inertia and some studies have suggested that caffeine’s mechanism as an antagonist to adenosine receptors could help explain the relation.</div>";
+  footer += "<br>";
+  footer += "<h4>Further reading</h4><ul>";
+  footer += "<li><a href=\"http://en.wikipedia.org/wiki/Yerkes%E2%80%93Dodson_law\">Wikipedia: Yerkes–Dodson law</a></li>";
+  footer += "<li><a href=\"http://www.sciencedirect.com/science/article/pii/S0278691502000960\">Effects of caffeine on human behavior</a></li>";
+  footer += "<li><a href=\"http://www.sciencedirect.com/science/article/pii/0191886994902267\">Impulsitivity, caffeine, and task difficulty: A within-subjects test of the Yerkes-Dodson law</a></li>";
+  footer += "<li><a href=\"http://en.wikipedia.org/wiki/Sleep_inertia\">Wikipedia: Sleep Inertia</a></li>";
+  footer += "<li><a href=\"http://onlinelibrary.wiley.com/doi/10.1046/j.1365-2869.1999.00150.x/full\">The effects of sleep inertia on decision-making performance</a></li>";
+  footer += "<li><a href=\"http://test.spokane.wsu.edu/ResearchOutreach/Sleep/documents/2001SLP-VanDongen-etal.pdf\">Caffeine Eliminates Psychomotor Vigilance Deficits from Sleep Inertia</a></li>";
+  footer += "</ul>";
+  new Question({
+      num: 3,
+      question: "Does caffeine in the morning generally improve cognitive performance in healthy people?",
+      correct_choice: 0,
+      choices: ["Yes. It wakes people up.",
+                "No. Only sleep deprived people benefit from caffeine in the morning.",
+                "Maybe. The research is inconclusive or contradictory",
+                "I don’t know."],
+      num_choices: 4,
+      footer: footer
+  })
+  .save()
+  ;
+
+  /////////////////
+  // Question #4 //
+  /////////////////
+  footer = "";
+  footer += "<h4>Explanation</h4>";
+  footer += "<div>Although a few early studies claimed context-dependent effects, many other studies have been unable to reproduce these effects. Thus, the results are best summarized as inconclusive and contradictory.</div>";
+  footer += "<br>";
+  footer += "<div>Some reviews and critiques have suggested that rather than effecting improved recall through state-dependent memory, the action of gum chewing itself produces calming or focusing effects that improve scores.</div>";
+  footer += "<br>";
+  footer += "<h4>Further reading</h4><ul>";
+  footer += "<li><a href=\"http://en.wikipedia.org/wiki/Context-dependent_memory\">Wikipedia: Context-dependent memory</a></li>";
+  footer += "<li><a href=\"http://en.wikipedia.org/wiki/State-dependent_memory\">Wikipedia: State-dependent memory</a></li>";
+  footer += "<li><a href=\"http://www.sciencedirect.com/science/article/pii/S0195666311004703\">Cognitive advantages of chewing gum. Now you see them, now you don’t</a></li>";
+  footer += "<li><a href=\"http://www.sciencedirect.com/science/article/pii/S0195666304000911\">Chewing gum can produce context-dependent effects upon memory</a></li>";
+  footer += "<li><a href=\"http://www.sciencedirect.com/science/article/pii/S0195666309005625\">Chewing gum does not induce context-dependent memory when flavor is held constant</a></li>";
+  footer += "<li><a href=\"http://www.sciencedirect.com/science/article/pii/S0195666306005939\">Chewing gum and context-dependent memory effects: A re-examination</a></li>";
+  footer += "<li><a href=\"https://scholar.google.com/scholar?q=chewing+gum+memory\">More related results..</a></li>";
+  footer += "</ul>";
+  new Question({
+      num: 4,
+      question: "Does chewing gum during both learning and testing improve memory recall?",
+      correct_choice: 2,
+      choices: ["Yes. Context-dependent memory effects explain this phenomenon.",
+                "No. Gum doesn’t really affect learning or recall.",
+                "Maybe. The research is inconclusive or contradictory.",
+                "I don’t know."],
+      num_choices: 4,
+      footer: footer
+  })
+  .save()
+  ;
+  footer += "<li><a href=\"url\">title</a></li>";
   // methods ======================================================================
   function choice_vote_compare(a,b) {
     // Sort decreasing votes
@@ -169,7 +266,7 @@ module.exports = function(app) {
   });
 
   app.get('/quiz/:uid', function(req, res) {
-    Question.find().lean().exec(
+    Question.find().sort('num').lean().exec(
       function(err, questions) {
         res.render('quiz.jade', {questions: questions, uid: req.params.uid});
     });
