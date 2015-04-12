@@ -50,7 +50,7 @@ mixin question(q, uid)
   br
   div.panel.panel-info(id="panel_"+q.num)
     div.panel-heading
-      h3.panel-title Question #{q.num} -- #{q.question}
+      h3.panel-title Question #{q.num} -- !{q.question}
     div.panel-body
       div.btn-group.btn-group-justified(role="group", id=("q_"+q.num), aria-label="...")
         each choice, i in q.choices

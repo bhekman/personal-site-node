@@ -159,6 +159,61 @@ module.exports = function(app) {
   })
   //.save()
   ;
+
+  /////////////////
+  // Question #5 //
+  /////////////////
+  footer = "";
+  footer += "<h4>Explanation</h4>";
+  footer += "<div>This question focuses on a phenomenon called the Spacing Effect. The Spacing Effect dictates that iterative exposure to learning material with gaps of time between iterations leads to easier recall in the future, as compared to iterative exposure to learning material with no time between iterations. This means that cramming is ineffective long-term.</div>";
+  footer += "<br>";
+  footer += "<h4>Further reading</h4><ul>";
+  footer += "<li><a href=\"http://en.wikipedia.org/wiki/Spacing_effect\">Wikipedia: Spacing effect</a></li>";
+  footer += "<li><a href=\"https://www.researchgate.net/publication/240282744_Exploring_CrammingStudent_Behaviors_Beliefs_and_Learning_Retention_in_the_Principles_of_Marketing_Course\">Exploring CrammingStudent Behaviors, Beliefs, and Learning Retention in the Principles of Marketing Course</a></li>";
+  footer += "<li><a href=\"http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.204.6208&rep=rep1&type=pdf\">Testing Effect, Cramming, and Retrievability </a></li>";
+  footer += "<li><a href=\"http://www.sciencedirect.com/science/article/pii/S0022537174800022\">Spacing of repetitions in the incidental and intentional free recall of pictures and words</a></li>";
+  footer += "</ul>";
+  new Question({
+      num: 5,
+      question: "Is cramming as effective as spaced studying for <ins>long-term</ins> recall?",
+      correct_choice: 1,
+      choices: ["Yes. How the information was learned doesn’t affect long-term recall.",
+                "No. Spaced recall is more effective for long-term recall.",
+                "Maybe. The research is inconclusive or contradictory.",
+                "I don’t know."],
+      num_choices: 4,
+      footer: footer
+  })
+  //.save()
+  ;
+
+  /////////////////
+  // Question #6 //
+  /////////////////
+  footer = "";
+  footer += "<h4>Explanation</h4>";
+  footer += "<div>Although the Spacing Effect dictates that spaced studying provides better long-term retention, this benefit does not apply to short-term recall. Cramming is as effective as spaced studying in short-term scenarios. Additionally, it may even produce marginally better results on tests, since cramming often continues until moments before a test begins, which reduces the compared delay period before recall.</div>";
+  footer += "<br>";
+  footer += "<h4>Further reading</h4><ul>";
+  footer += "<li><a href=\"http://en.wikipedia.org/wiki/Spacing_effect\">Wikipedia: Spacing effect</a></li>";
+  footer += "<li><a href=\"https://www.researchgate.net/publication/240282744_Exploring_CrammingStudent_Behaviors_Beliefs_and_Learning_Retention_in_the_Principles_of_Marketing_Course\">Exploring CrammingStudent Behaviors, Beliefs, and Learning Retention in the Principles of Marketing Course</a></li>";
+  footer += "<li><a href=\"http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.204.6208&rep=rep1&type=pdf\">Testing Effect, Cramming, and Retrievability </a></li>";
+  footer += "<li><a href=\"http://www.sciencedirect.com/science/article/pii/S0022537174800022\">Spacing of repetitions in the incidental and intentional free recall of pictures and words</a></li>";
+  footer += "</ul>";
+  new Question({
+      num: 6,
+      question: "Is cramming as effective as spaced studying for <ins>short-term</ins> recall?",
+      correct_choice: 0,
+      choices: ["Yes. Cramming works well short-term, for things like college exams.",
+                "No. Spaced recall helps people learn content more successfully, even for short-term recall.",
+                "Maybe. The research is inconclusive or contradictory.",
+                "I don’t know."],
+      num_choices: 4,
+      footer: footer
+  })
+  //.save()
+  ;
+
   footer += "<li><a href=\"url\">title</a></li>";
   // methods ======================================================================
   function choice_vote_compare(a,b) {
