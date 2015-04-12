@@ -9,12 +9,17 @@ html(lang="en")
 
       //-button.btn.btn-danger(type="submit") Reset quiz!
 
-      h1 ummmmm
       each r, i in results
-        h1 r.q_num
+        br
+        div.panel.panel-info()
+          div.panel-heading
+            h3.panel-title Question #{r.q_num} -- #{r.question}
+          div.panel-body
+            each c, j in r.choices
+              h5 Choice "#{c.choice}" got #{c.votes} votes.
 
-      //-button.btn.btn-success(type="submit") Submit!
       br
+      a.btn.btn-success(type="button" href="/quiz") Go back
       br
       br
 

@@ -33,7 +33,7 @@ mixin q_onclick(q_num, q_choice, correct, num_choices, footer, uid)
           $('##{q_num}_'+i).toggleClass('btn-default btn-warning');
         }
       }
-      $panel.append('<div class="panel-footer">#{footer}</div>');
+      $panel.append('<div class="panel-footer">!{footer}</div>');
 
       // data store
       var uid = #{uid};
@@ -46,15 +46,15 @@ mixin q_onclick(q_num, q_choice, correct, num_choices, footer, uid)
     })
 
 
-mixin question(title, q_num, correct, choices, num_choices, footer, uid)
+mixin question(q, uid)
   br
-  div.panel.panel-info(id="panel_"+q_num)
+  div.panel.panel-info(id="panel_"+q.num)
     div.panel-heading
-      h3.panel-title= title
+      h3.panel-title Question #{q.num} -- #{q.question}
     div.panel-body
-      div.btn-group.btn-group-justified(role="group", id=("q_"+q_num), q_numaria-label="...")
-        each choice, i in choices
+      div.btn-group.btn-group-justified(role="group", id=("q_"+q.num), aria-label="...")
+        each choice, i in q.choices
           div.btn-group(role="group")
-            button.btn.btn-default(type="button", id=(q_num+"_"+i))= choice
-            +q_onclick(q_num, i, correct, num_choices, footer, uid)
+            button.btn.btn-default.question(type="button", id=(q.num+"_"+i), white-space="normal", word-wrap="break-word" )= choice
+            +q_onclick(q.num, i, q.correct_choice, q.num_choices, q.footer, uid)
 
