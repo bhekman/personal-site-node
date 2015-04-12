@@ -65,7 +65,7 @@ module.exports = function(app) {
       num_choices: 4,
       footer: footer
   })
-  .save()
+  //.save()
   ;
 
   /////////////////
@@ -92,7 +92,7 @@ module.exports = function(app) {
       num_choices: 4,
       footer: footer
   })
-  .save()
+  //.save()
   ;
 
   /////////////////
@@ -125,7 +125,7 @@ module.exports = function(app) {
       num_choices: 4,
       footer: footer
   })
-  .save()
+  //.save()
   ;
 
   /////////////////
@@ -157,7 +157,7 @@ module.exports = function(app) {
       num_choices: 4,
       footer: footer
   })
-  .save()
+  //.save()
   ;
   footer += "<li><a href=\"url\">title</a></li>";
   // methods ======================================================================
