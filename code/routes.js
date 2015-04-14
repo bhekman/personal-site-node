@@ -286,11 +286,11 @@ module.exports = function(app) {
     res.render('index.html');
   });
 
-  app.get('/quiz', function(req, res) {
+  app.get('/honorsproject', function(req, res) {
     res.render('quiz_unstarted.jade');
   });
 
-  app.put('/quiz/choice', function(req, res) {
+  app.put('/honorsproject/choice', function(req, res) {
     Choice.findOneAndUpdate(
       { uid: req.body.uid, q_num: req.body.q_num },
       { q_choice: req.body.q_choice },
@@ -301,18 +301,18 @@ module.exports = function(app) {
     res.end();
   });
 
-  app.get('/quiz/new', function(req, res) {
+  app.get('/honorsproject/new', function(req, res) {
     Choice.find().sort('-uid').limit(1).exec(function (err, max_choice) {
         // TODO: this system is quite vulnerable..
         var current_max = 0;
         if (max_choice && max_choice[0] != null) {
           var current_max = max_choice[0].uid;
         }
-        res.redirect('/quiz/' + (current_max + 1));
+        res.redirect('/honorsproject/' + (current_max + 1));
       });
   });
 
-  app.get('/quiz/results', function(req, res) {
+  app.get('/honorsproject/results', function(req, res) {
     updateResults();
     Result.find().sort('q_num').lean().exec(
       function(err, results) {
@@ -320,7 +320,7 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/quiz/:uid', function(req, res) {
+  app.get('/honorsproject/:uid', function(req, res) {
     Question.find().sort('num').lean().exec(
       function(err, questions) {
         res.render('quiz.jade', {questions: questions, uid: req.params.uid});
