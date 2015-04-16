@@ -39,7 +39,7 @@ mixin q_onclick(q_num, q_choice, correct, num_choices, footer, uid)
       var uid = #{uid};
       var data = {uid: uid, q_num: #{q_num}, q_choice: "#{q_choice}" };
       $.ajax({
-        url: '/quiz/choice',
+        url: '/honorsproject/choice',
         type: 'PUT',
         data: data,
       });
