@@ -46,15 +46,15 @@ mixin q_onclick(q_num, q_choice, correct, num_choices, footer, uid)
     })
 
 
-mixin question(q, uid)
+mixin question(q, q_idx, uid)
   br
   div.panel.panel-info(id="panel_"+q.num)
     div.panel-heading
-      h3.panel-title Question #{q.num} -- !{q.question}
+      h3.panel-title Question #{q_idx+1} -- !{q.question}
     div.panel-body
       div.btn-group.btn-group-justified(role="group", id=("q_"+q.num), aria-label="...")
-        each choice, i in q.choices
+        each choice, c_idx in q.choices
           div.btn-group(role="group")
-            button.btn.btn-default.question(type="button", id=(q.num+"_"+i), white-space="normal", word-wrap="break-word" )= choice
-            +q_onclick(q.num, i, q.correct_choice, q.num_choices, q.footer, uid)
+            button.btn.btn-default.question(type="button", id=(q.num+"_"+c_idx), white-space="normal", word-wrap="break-word" )= choice
+            +q_onclick(q.num, c_idx, q.correct_choice, q.num_choices, q.footer, uid)
 

@@ -1,11 +1,12 @@
 include question
+include jumbo
 
 html(lang="en")
   include header
   body
     div.container
 
-      include quiz_jumbo
+      +jumbo("Results Page", "Below are the choices from all users on all quiz questions.")
 
       //-button.btn.btn-danger(type="submit") Reset quiz!
 

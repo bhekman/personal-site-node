@@ -1,20 +1,19 @@
 include question
+include jumbo
 
 html(lang="en")
   include header
   body
     div.container
 
-      include quiz_jumbo
-
-      //-button.btn.btn-danger(type="submit") Reset quiz!
+      +jumbo(quiz_title, "Please answer the questions below.")
 
       each q, i in questions
-        //-+question(q.question, q.num, q.correct_choice, q.choices, q.num_choices, q.footer, uid)
-        +question(q, uid)
+        +question(q, i, uid)
 
       br
-      a.btn.btn-success(type="button" href="/honorsproject/results") See overall results
+      a.btn.btn-success(type="button" href="/honorsproject") Main Page
+      a.btn.btn-success(type="button" href="/honorsproject/results") Results Page
       br
       br
 

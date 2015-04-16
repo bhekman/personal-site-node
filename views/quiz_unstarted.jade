@@ -1,11 +1,13 @@
 include question
+include jumbo
 
 html(lang="en")
   include header
   body
     div.container
       
-      include quiz_jumbo
+      +jumbo("Welcome", "This is the main page for this academic performance focused site. It was created as an Honors Capstone project by Brad Hekman, and it is meant to be a useful resource with some fun mixed in. Enjoy the site!")
+
       br
 
       div.panel.panel-info(id="panel_"+q_num)
@@ -13,11 +15,18 @@ html(lang="en")
           h3.panel-title= "What would you like to do?"
         div.panel-body
           div.btn-group.btn-group-justified(role="group", aria-label="...")
+            // TODO: make a quiz class..
             div.btn-group(role="group")
-              a.btn.btn-default(type="button" href="/") See Brad's homepage
+              a.btn.btn-default(type="button" href="/honorsproject/new/techniques") Study Techniques Quiz
             div.btn-group(role="group")
-              a.btn.btn-success(type="button" href="/honorsproject/new") Take quiz!
+              a.btn.btn-default(type="button" href="/honorsproject/new/sleep") Sleep Quiz
             div.btn-group(role="group")
-              a.btn.btn-default(type="button" href="/honorsproject/results") Skip to results
+              a.btn.btn-default(type="button" href="/honorsproject/new/misc") Quiz of Miscellanea
+            div.btn-group(role="group")
+              a.btn.btn-default(type="button" href="/honorsproject/new/mega") Mega Quiz
+            div.btn-group(role="group")
+              a.btn.btn-default(type="button" href="/honorsproject/results") Results
+            //-div.btn-group(role="group")
+              //-a.btn.btn-default(type="button" href="/") See Brad's homepage
         br
 

@@ -23,6 +23,10 @@ app.engine('html', require('ejs').renderFile);
 
 app.use('/static', express.static(__dirname + '/views/static'));
 app.use('/honorsproject/static', express.static(__dirname + '/views/static'));
+app.use('/honorsproject/mega/static', express.static(__dirname + '/views/static'));
+app.use('/honorsproject/sleep/static', express.static(__dirname + '/views/static'));
+app.use('/honorsproject/misc/static', express.static(__dirname + '/views/static'));
+app.use('/honorsproject/techniques/static', express.static(__dirname + '/views/static'));
 
 
 // routes ======================================================================
