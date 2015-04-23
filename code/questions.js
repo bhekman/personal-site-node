@@ -277,7 +277,7 @@ module.exports = function(mongoose, models) {
   footer += "<div>Most observational studies, however, have shown an unsurprising correlations between daytime napping, sleep deprivation and poor academic performance. The detriments from sleep deprivation clearly outweigh the benefits of napping.</div>";
   footer += "<br>";
   footer += "<h4>Further reading</h4><ul>";
-  footer += "<li><a href=\"http://onlinelibrary.wiley.com.proxy.lib.umich.edu/doi/10.1111/ejn.12118/abstract\"><(Research) Napping to renew learning capacity: enhanced encoding after stimulation of sleep slow oscillations</a></li>";
+  footer += "<li><a href=\"http://onlinelibrary.wiley.com.proxy.lib.umich.edu/doi/10.1111/ejn.12118/abstract\">(Research) Napping to renew learning capacity: enhanced encoding after stimulation of sleep slow oscillations</a></li>";
   footer += "<li><a href=\"http://dx.doi.org/10.1111/j.1365-2869.2008.00718.x\">(Research) Benefits of napping in healthy adults: impact of nap length, time of day, age, and experience with napping</a></li>";
   footer += "<li><a href=\"http://search.proquest.com.proxy.lib.umich.edu/docview/1626535113?pq-origsite=summon\">(Research) The Napping Behaviour of Australian University Students</a></li>";
   footer += "<li><a href=\"http://www.nature.com.proxy.lib.umich.edu/neuro/journal/v5/n7/full/nn0702-618.html\">(Article, Nature) Be caught napping: you\\'re doing more than resting your eyes</a></li>";
@@ -286,7 +286,7 @@ module.exports = function(mongoose, models) {
       num: 10,
       quiz: ['sleep'],
       question: "Is daytime napping generally good or bad for learning?",
-      correct_choice: 0,
+      correct_choice: 1,
       choices: ["Bad. Napping actually causes more sleepiness than it fixes.",
                 "Good. Napping rests the brain and rejuvinates it.",
                 "Maybe. The research is inconclusive or contradictory.",
