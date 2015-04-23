@@ -28,7 +28,7 @@ module.exports = function(mongoose, models) {
       num_choices: 4,
       footer: footer
   })
-  .save()
+  //.save()
   ;
 
   /////////////////
@@ -57,7 +57,7 @@ module.exports = function(mongoose, models) {
       num_choices: 4,
       footer: footer
   })
-  .save()
+  //.save()
   ;
 
   /////////////////
@@ -91,7 +91,7 @@ module.exports = function(mongoose, models) {
       num_choices: 4,
       footer: footer
   })
-  .save()
+  //.save()
   ;
 
   /////////////////
@@ -124,7 +124,7 @@ module.exports = function(mongoose, models) {
       num_choices: 4,
       footer: footer
   })
-  .save()
+  //.save()
   ;
 
   /////////////////
@@ -152,7 +152,7 @@ module.exports = function(mongoose, models) {
       num_choices: 4,
       footer: footer
   })
-  .save()
+  //.save()
   ;
 
   /////////////////
@@ -179,7 +179,9 @@ module.exports = function(mongoose, models) {
                 "I don’t know."],
       num_choices: 4,
       footer: footer
-  }).save();
+  })
+  //.save()
+  ;
 
   /////////////////
   // Question #7 //
@@ -205,7 +207,9 @@ module.exports = function(mongoose, models) {
                 "I don’t know."],
       num_choices: 4,
       footer: footer
-  }).save();
+  })
+  //.save()
+  ;
 
   /////////////////
   // Question #8 //
@@ -231,7 +235,9 @@ module.exports = function(mongoose, models) {
                 "I don’t know."],
       num_choices: 4,
       footer: footer
-  }).save();
+  })
+  //.save()
+  ;
 
   /////////////////
   // Question #9 //
@@ -258,7 +264,9 @@ module.exports = function(mongoose, models) {
                 "I don’t know."],
       num_choices: 4,
       footer: footer
-  }).save();
+  })
+  //.save()
+  ;
 
   //////////////////
   // Question #10 //
@@ -285,7 +293,9 @@ module.exports = function(mongoose, models) {
                 "I don’t know."],
       num_choices: 4,
       footer: footer
-  }).save();
+  })
+  //.save()
+  ;
 
   //////////////////
   // Question #11 //
@@ -313,7 +323,9 @@ module.exports = function(mongoose, models) {
                 "I don’t know."],
       num_choices: 4,
       footer: footer
-  }).save();
+  })
+  //.save()
+  ;
 
   //////////////////
   // Question #12 //
@@ -338,7 +350,9 @@ module.exports = function(mongoose, models) {
                 "I don’t know."],
       num_choices: 4,
       footer: footer
-  }).save();
+  })
+  //.save()
+  ;
 
   //////////////////
   // Question #13 //
@@ -363,7 +377,9 @@ module.exports = function(mongoose, models) {
                 "I don’t know."],
       num_choices: 4,
       footer: footer
-  }).save();
+  })
+  //.save()
+  ;
 
 
   /*
